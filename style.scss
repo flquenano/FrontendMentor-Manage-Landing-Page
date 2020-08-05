@@ -369,6 +369,11 @@ footer {
 .mobile {
   display: flex !important;
 }
+
+.show-sns {
+  display: flex !important;
+}
+
 .desktop {
   display: none !important;
 }
@@ -394,7 +399,9 @@ footer {
   .desktop {
     display: flex !important;
   }
-
+  .show-sns {
+    display: none !important;
+  }
   #navbar {
     justify-content: center;
     margin-bottom: 5rem;
