@@ -176,10 +176,10 @@ p {
   background-image: url("images/bg-tablet-pattern.svg");
   background-repeat: no-repeat;
   background-size: contain;
-  top: -30%;
-  left: 10%;
+  top: -15vh;
+  left: 10vw;
   width: 70rem;
-  height: 50rem;
+  height: 40rem;
 }
 
 .tablet-2 {
@@ -568,6 +568,21 @@ footer {
   footer {
     display: flex;
     justify-content: center;
+  }
+}
+@media screen and (min-width: 1366px) {
+  .tablet-1 {
+    top: -20vh;
+    left: 55vw;
+    width: 70rem;
+    height: 50rem;
+  }
+
+  .tablet-2 {
+    top: 100vh;
+    right: 50%;
+    width: 70rem;
+    height: 50rem;
   }
 }
 
