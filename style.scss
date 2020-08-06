@@ -141,6 +141,11 @@ p {
   display: block !important;
 }
 
+.container {
+  overflow-x: hidden;
+  position: relative;
+}
+
 #navbar {
   @include block-margin();
   display: flex;

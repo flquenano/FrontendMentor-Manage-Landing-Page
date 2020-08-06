@@ -108,6 +108,11 @@ p {
   display: block !important;
 }
 
+.container {
+  overflow-x: hidden;
+  position: relative;
+}
+
 #navbar {
   margin: 3rem 2rem;
   display: flex;
