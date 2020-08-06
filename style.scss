@@ -25,6 +25,7 @@ $font-base: 1rem;
 $font-medium: 1.25rem;
 $font-large: 1.5rem;
 $font-x-large: 2rem;
+$font-huge: 3rem;
 
 @mixin block-margin {
   margin: 3rem 2rem;
@@ -47,7 +48,11 @@ body {
   font-family: $font-family;
   font-weight: $font-weight-light;
   color: $neutral-grayish-blue;
-  line-height: $font-x-large;
+  overflow-x: hidden !important;
+}
+
+p {
+  line-height: 2rem;
 }
 
 .heading {
@@ -62,6 +67,22 @@ body {
   line-height: 4rem !important;
 }
 
+.text-med {
+  font-size: 1.5rem;
+}
+
+.text-lg {
+  font-size: 2rem;
+}
+
+.text-xl {
+  font-size: 2.5rem;
+}
+
+.text-2xl {
+  font-size: 3rem;
+}
+
 .font-large {
   // font-size: $font-large !important;
   font-size: 2em;
@@ -69,6 +90,16 @@ body {
 
 .font-x-large {
   font-size: $font-x-large !important;
+}
+
+.font-xx-large {
+  font-size: 2.5rem;
+  line-height: 3rem;
+}
+
+.font-huge {
+  font-size: 3rem !important;
+  line-height: 3.5rem;
 }
 
 .heading-br {
@@ -175,6 +206,30 @@ body {
   cursor: pointer;
 }
 
+.tablet-1 {
+  position: absolute;
+  z-index: -1;
+  background-image: url("images/bg-tablet-pattern.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  top: -30%;
+  left: 10%;
+  width: 70rem;
+  height: 50rem;
+}
+
+.tablet-2 {
+  position: absolute;
+  z-index: -1;
+  background-image: url("images/bg-tablet-pattern.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  top: 50%;
+  right: -50%;
+  width: 100%;
+  height: 50%;
+}
+
 .intro {
   @include block-margin();
   padding-top: 5rem;
@@ -184,20 +239,30 @@ body {
   align-items: center;
   flex-wrap: wrap;
   &__content {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    width: min(90vw, 600px);
+    button {
+      margin-top: 2rem;
+    }
     order: 2;
     text-align: center;
   }
   &__image {
-    max-width: 25rem;
-    min-width: 20rem;
+    width: min(90vw, 500px);
+    display: flex;
+    justify-content: center;
   }
 }
 
 .content {
   margin: 3rem 1rem;
   padding-bottom: 5rem;
+  text-align: center;
+
   .content__header {
-    margin: 1rem 2 rem;
+    margin: 1rem 2rem;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -205,17 +270,30 @@ body {
     flex-flow: column nowrap;
   }
   .content__content {
+    margin: 1rem;
     display: flex;
-    flex-flow: row wrap;
+    flex-flow: column wrap;
     align-items: center;
     justify-content: center;
-
     .content__section__header {
+      position: relative;
       display: flex;
       flex-flow: row nowrap;
       align-items: center;
       justify-content: flex-start;
+
+      .orange-bar {
+        z-index: -1;
+        width: 100vw;
+        height: 2.5rem;
+        position: absolute;
+        background-color: $neutral-pale-red;
+        border-top-left-radius: 25px;
+        border-bottom-left-radius: 25px;
+      }
       .number {
+        position: relative;
+        z-index: 2;
         padding: 0.5rem 1.5rem;
         border: none;
         border-radius: 50px;
@@ -227,6 +305,11 @@ body {
         white-space: nowrap;
       }
     }
+    .content__section__content {
+      text-align: start;
+      max-width: 600px;
+      line-height: 2rem;
+    }
   }
 }
 
@@ -237,11 +320,16 @@ body {
 .testimony {
   display: flex;
   flex-flow: column nowrap;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   text-align: center;
   margin: 3rem 2rem;
+  padding: 0 1rem;
+  height: 80%;
+  background-color: $neutral-light-gray;
   &__img {
+    position: relative;
+    top: -2.5rem;
     width: 5rem;
   }
 }
@@ -269,7 +357,7 @@ body {
 .simplify {
   background: $primary-bright-red;
   background-image: url("./images/bg-simplify-section-mobile.svg");
-  background-size: 15% 80%;
+  background-size: 40% 75%;
   background-repeat: no-repeat;
   background-position: left;
 
@@ -389,6 +477,23 @@ footer {
   .mobile {
     display: none !important;
   }
+
+  .simplify {
+    background-image: url("./images/bg-simplify-section-desktop.svg");
+    background-size: 120% 100%;
+    justify-content: space-around;
+    &-text {
+      width: 50%;
+    }
+    &-btn {
+      padding-bottom: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding-right: 5rem;
+      align-self: flex-end;
+    }
+  }
 }
 
 @media screen and (min-width: 1024px) {
@@ -439,11 +544,16 @@ footer {
       text-align: start !important;
       padding: 0 3rem;
       max-width: 35rem;
+      margin-top: 1rem;
     }
     &__content {
       width: 50%;
       max-width: 35rem;
       padding: 0 2rem;
+      text-align: start;
+      .orange-bar {
+        display: none !important;
+      }
       .content__section__content {
         padding: 0 5.25rem;
       }
@@ -452,23 +562,6 @@ footer {
 
   .testimony__container {
     padding: 0 4rem;
-  }
-
-  .simplify {
-    background-image: url("./images/bg-simplify-section-desktop.svg");
-    background-size: 120% 100%;
-    justify-content: space-around;
-    &-text {
-      width: 50%;
-    }
-    &-btn {
-      padding-bottom: 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding-right: 5rem;
-      align-self: flex-end;
-    }
   }
 
   .footer {
