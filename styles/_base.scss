@@ -1,0 +1,94 @@
+// body {
+//   // overflow-x: hidden;
+//   // background: url("../images/bg-tablet-pattern.svg") top -115px right -140px /
+//   //     460px auto no-repeat,
+//   //   url("../images/bg-tablet-pattern.svg") top 515px right -175px / 310px auto no-repeat;
+//   // max-width: 1440px;
+
+//   // @include tablet-landscape {
+//   //   background: url("../images/bg-tablet-pattern.svg") top -115px right -140px /
+//   //       600px auto no-repeat,
+//   //     url("../images/bg-tablet-pattern.svg") top 615px right -195px / 450px auto
+//   //       no-repeat;
+//   //   max-width: 1440px;
+//   // }
+// }
+
+#root {
+  position: relative;
+  margin: 0 auto;
+  max-width: 1440px;
+  overflow-x: hidden;
+  box-shadow: -5px 0 10px rgb(230, 230, 230), 5px 0 10px rgb(230, 230, 230);
+  background: url("../images/bg-tablet-pattern.svg") top -115px right -140px /
+      460px auto no-repeat,
+    url("../images/bg-tablet-pattern.svg") top 515px right -175px / 310px auto no-repeat;
+
+  @include tablet-landscape {
+    background: url("../images/bg-tablet-pattern.svg") top -115px right -140px /
+        600px auto no-repeat,
+      url("../images/bg-tablet-pattern.svg") top 615px right -195px / 450px auto
+        no-repeat;
+  }
+  @include desktop-small {
+    background: url("../images/bg-tablet-pattern.svg") top -165px right -155px /
+        820px auto no-repeat,
+      url("../images/bg-tablet-pattern.svg") top 1125px left -500px / 810px auto
+        no-repeat;
+  }
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+img {
+  max-width: 100%;
+}
+
+ul,
+body,
+h1,
+h2,
+h3,
+p {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: $primary-dark-blue;
+}
+
+p {
+  font-size: 0.875rem;
+  @include desktop-x-small {
+    font-size: 1rem;
+    line-height: 28px;
+  }
+}
+
+h1 {
+  font-size: 1rem;
+  letter-spacing: -0.29px;
+}
+
+body {
+  font-size: $font-size;
+  font-family: $font-family;
+  font-weight: $font-weight-light;
+  color: $neutral-grayish-blue;
+  overflow-x: hidden !important;
+}
+
+footer {
+  background-color: $neutral-dark-blue;
+}

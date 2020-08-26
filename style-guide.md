@@ -26,6 +26,7 @@ Vary Light Gray: hsl(0, 0%, 98%)
 ### Body Copy
 
 - Font size: 16px
+- Navbar: 0.75
 
 ### Font
 
